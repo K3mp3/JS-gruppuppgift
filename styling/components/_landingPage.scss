@@ -1,0 +1,31 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/fonts" as *;
+
+.landing-page {
+  height: 100vh;
+  background: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+
+  h1 {
+    font-family: map-get($font-title-black, font-family);
+    font-weight: map-get($font-title-black, font-weight);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: map-get($font-text-light, font-family);
+    font-weight: map-get($font-text-light, font-weight);
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+  }
+}
