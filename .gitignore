@@ -1,0 +1,11 @@
+node_modules
+.vs_code
+.DS_STORE
+.style.css
+.codegpt
+.vscode/*
+!.vscode/extensions.json
+dist
+dist-ssr
+coverage
+*.local
