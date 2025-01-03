@@ -11,7 +11,7 @@ TODO: 3. Create an array that will store all the travel plans of the user.
 */
 
 
-let travelTo = ":)" // this is the variable that will store the location to which the user is traveling (string)
+let travelTo = "" // this is the variable that will store the location to which the user is traveling (string)
 let travelFrom = "" // this is the variable that will store the location from which the user is traveling (string)
 let travelDate = "" // this is the variable that will store the date of travel (string)
 let travelTransport = "" // this is the variable that will store the mode of transport (string)
