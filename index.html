@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styling/reset.css" />
     <link rel="stylesheet" href="./styling/style.css" />
+    
+    <script src="scripts/globalVariables.js" defer></script>
     <script src="script.js" type="module" defer></script>
     <title>Reseplanerare</title>
   </head>
   <body>
     <main>
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1>Vart vill du resa?</h1>
         <form>
           <label>
@@ -20,7 +22,7 @@
           <button type="submit" class="button">Nästa</button>
         </form>
       </section>
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1> Vart åker du ifrån?</h1>
           <form >
             <label for=""> 
@@ -31,7 +33,7 @@
           <button type="submit" class="button">Nästa</button>
           </form>
       </section>
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1> När vill du åka?</h1>
           <form action="">
             <label for=""> 
@@ -42,7 +44,7 @@
           <button type="submit" class="button">Nästa</button>
           </form>
       </section>
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1> Hur vill du resa?</h1>
           <form action="">
             <label for=""> 
@@ -59,7 +61,7 @@
           </form>
       </section>
 
-      <section class="summary-container">
+      <section class="summary-container hidden">
         <h1>Resesammanfattning</h1>
         <div class="summary">
           <p>Resa från: Malmö</p>
@@ -78,7 +80,7 @@
           <button type="submit" class="button">Boka resa</button>
         </form>
       </section>
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <ul>
           <li>Stockholm till Göteborg</li>
           <li>Malmö till Göteborg</li>

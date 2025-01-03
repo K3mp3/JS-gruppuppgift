@@ -1,5 +1,4 @@
 import { test } from "./scripts/landingPage.js";
-
 test();
 
 // function init() {
