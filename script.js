@@ -1,6 +1,14 @@
 import { test } from "./scripts/landingPage.js";
+import { testAlert } from "./scripts/test.js";
 test();
 
+function init() {
+    // let formTo = document.querySelector("#formTo");
+    // formTo.addEventListener("submit", testAlert);
+}
+
+
+init();
 // function init() {
 //     menuOverlay = document.querySelector(".menu-overlay");
 
