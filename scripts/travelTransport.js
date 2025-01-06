@@ -1,3 +1,4 @@
+// Select the form and the transport select element
 const transportForm = document.querySelector('form[action="#"]');
 const transportSelect = document.querySelector('#transport');
 
