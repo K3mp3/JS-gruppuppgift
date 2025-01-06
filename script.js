@@ -1,13 +1,13 @@
 import { test } from "./scripts/landingPage.js";
 import { testAlert } from "./scripts/test.js";
-import { summary } from "./scripts/summary.js";
+import { initTravelCard } from "./scripts/travelCard.js";
 test();
 
 function init() {
   // let formTo = document.querySelector("#formTo");
   // formTo.addEventListener("submit", testAlert);
 
-  summary();
+  initTravelCard();
 }
 
 init();

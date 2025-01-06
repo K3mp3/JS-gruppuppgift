@@ -23,6 +23,7 @@ let travelPlan = {
   travelDate: "",
   travelTransport: "",
   bucketList: [],
+  id: 0,
 };
 
 let travelPlans = []; // this is the variable that will store all the travel plans of the user (array) (object)
