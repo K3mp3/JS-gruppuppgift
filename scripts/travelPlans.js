@@ -1,78 +1,192 @@
-export function manageTravelPlans() {
-    function addNewTravelPlan() {
-        travelPlan = {
-            travelTo,
-            travelFrom,
-            travelDate,
-            travelTransport,
-            bucketList
-        };
+// Constants
+const TRANSPORT_TYPES = {
+    car: 'Bil',
+    train: 'Tåg',
+    bus: 'Buss',
+    plane: 'Flyg'
+};
 
-        travelPlans.push({ ...travelPlan });
-        updateTravelList();
+export class TravelPlanner {
+    constructor() {
+        this.travelPlans = [];
+        this.currentStep = 0;
+        this.sections = document.querySelectorAll('.landing-page');
+        this.initializeEventListeners();
     }
 
-    function updateTravelList() {
-        const travelListElement = document.querySelector('.landing-page ul#travelList');
-        travelListElement.innerHTML = ''; // Rensa tidigare lista
+    initializeEventListeners() {
+        // Form submission handler
+        document.querySelectorAll('form').forEach((form, index) => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleFormSubmit(e, index);
+            });
+        });
 
-        travelPlans.forEach((plan, index) => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `${plan.travelFrom} till ${plan.travelTo} den ${plan.travelDate} med ${plan.travelTransport}`;
+        // Initialize edit/delete handlers
+        this.updateTravelList();
+    }
 
-            const editButton = document.createElement('button');
-            editButton.textContent = 'Redigera';
-            editButton.addEventListener('click', () => editTravelPlan(index));
+    handleFormSubmit(event, stepIndex) {
+        const form = event.target;
+        
+        switch(stepIndex) {
+            case 0: // Destination
+                this.setTravelDetail('travelTo', form.querySelector('input').value);
+                break;
+            case 1: // Origin
+                this.setTravelDetail('travelFrom', form.querySelector('input').value);
+                break;
+            case 2: // Date
+                this.setTravelDetail('travelDate', form.querySelector('input[type="date"]').value);
+                break;
+            case 3: // Transport
+                this.setTravelDetail('travelTransport', form.querySelector('#transport').value);
+                this.addNewTravelPlan();
+                break;
+        }
 
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Ta bort';
-            deleteButton.addEventListener('click', () => deleteTravelPlan(index));
+        if (stepIndex < 3) {
+            this.nextStep();
+        }
+    }
 
-            listItem.appendChild(editButton);
-            listItem.appendChild(deleteButton);
+    setTravelDetail(key, value) {
+        if (!value) {
+            throw new Error('Vänligen fyll i alla fält');
+        }
+        this.currentPlan = {
+            ...this.currentPlan,
+            [key]: value
+        };
+    }
 
+    nextStep() {
+        if (this.currentStep < this.sections.length - 1) {
+            this.sections[this.currentStep].style.display = 'none';
+            this.currentStep++;
+            this.sections[this.currentStep].style.display = 'block';
+        }
+    }
+
+    addNewTravelPlan() {
+        if (this.validateTravelPlan(this.currentPlan)) {
+            this.travelPlans.push({
+                ...this.currentPlan,
+                id: Date.now(),
+                bucketList: []
+            });
+            this.updateTravelList();
+            this.resetForm();
+        }
+    }
+
+    validateTravelPlan(plan) {
+        const requiredFields = ['travelTo', 'travelFrom', 'travelDate', 'travelTransport'];
+        return requiredFields.every(field => plan && plan[field]);
+    }
+
+    updateTravelList() {
+        const travelListElement = document.querySelector('#travelList');
+        if (!travelListElement) return;
+
+        travelListElement.innerHTML = '';
+        
+        this.travelPlans.forEach((plan, index) => {
+            const listItem = this.createTravelListItem(plan, index);
             travelListElement.appendChild(listItem);
         });
     }
 
-    function deleteTravelPlan(index) {
-        travelPlans.splice(index, 1); 
-        updateTravelList();
+    createTravelListItem(plan, index) {
+        const listItem = document.createElement('li');
+        listItem.className = 'travel-plan-item';
+        
+        const transportDisplay = TRANSPORT_TYPES[plan.travelTransport] || plan.travelTransport;
+        
+        listItem.innerHTML = `
+            <div class="travel-info">
+                <h3>${plan.travelFrom} → ${plan.travelTo}</h3>
+                <p>Datum: ${this.formatDate(plan.travelDate)}</p>
+                <p>Transport: ${transportDisplay}</p>
+            </div>
+            <div class="travel-actions">
+                <button class="edit-btn">Redigera</button>
+                <button class="delete-btn">Ta bort</button>
+            </div>
+        `;
+
+        // Add event listeners
+        listItem.querySelector('.edit-btn').addEventListener('click', () => this.editTravelPlan(index));
+        listItem.querySelector('.delete-btn').addEventListener('click', () => this.deleteTravelPlan(index));
+
+        return listItem;
     }
 
-    function editTravelPlan(index) {
-        let plan = travelPlans[index];
+    editTravelPlan(index) {
+        const plan = this.travelPlans[index];
+        
+        const editForm = this.createEditForm(plan);
+        
+        // Replace the list item with the edit form
+        const listItem = document.querySelector(`#travelList li:nth-child(${index + 1})`);
+        listItem.innerHTML = '';
+        listItem.appendChild(editForm);
+    }
 
-        const newTo = prompt("Ändra destination:", plan.travelTo);
-        const newFrom = prompt("Ändra startplats:", plan.travelFrom);
-        const newDate = prompt("Ändra datum:", plan.travelDate);
-        const newTransport = prompt("Ändra transportmedel:", plan.travelTransport);
+    createEditForm(plan) {
+        const form = document.createElement('form');
+        form.className = 'edit-travel-form';
+        
+        form.innerHTML = `
+            <input type="text" value="${plan.travelTo}" placeholder="Destination" required>
+            <input type="text" value="${plan.travelFrom}" placeholder="Startplats" required>
+            <input type="date" value="${plan.travelDate}" required>
+            <select>
+                ${Object.entries(TRANSPORT_TYPES).map(([value, label]) => 
+                    `<option value="${value}" ${plan.travelTransport === value ? 'selected' : ''}>${label}</option>`
+                ).join('')}
+            </select>
+            <button type="submit">Spara</button>
+            <button type="button" class="cancel-btn">Avbryt</button>
+        `;
 
-        if (newTo && newFrom && newDate && newTransport) {
-            travelPlans[index] = {
-                ...plan,
-                travelTo: newTo,
-                travelFrom: newFrom,
-                travelDate: newDate,
-                travelTransport: newTransport
-            };
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const [to, from, date, transport] = e.target.querySelectorAll('input, select');
+            
+            plan.travelTo = to.value;
+            plan.travelFrom = from.value;
+            plan.travelDate = date.value;
+            plan.travelTransport = transport.value;
+            
+            this.updateTravelList();
+        });
 
-            updateTravelList();
+        form.querySelector('.cancel-btn').addEventListener('click', () => this.updateTravelList());
+
+        return form;
+    }
+
+    deleteTravelPlan(index) {
+        if (confirm('Är du säker på att du vill ta bort denna resa?')) {
+            this.travelPlans.splice(index, 1);
+            this.updateTravelList();
         }
     }
 
-    document.querySelector('#formTo').addEventListener('submit', (event) => {
-        event.preventDefault(); // Förhindra sidladdning
+    resetForm() {
+        this.currentPlan = {};
+        this.currentStep = 0;
+        document.querySelectorAll('form').forEach(form => form.reset());
+    }
 
-        travelTo = document.querySelector('input[placeholder="Stockholm"]').value;
-        travelFrom = document.querySelector('input[placeholder="Malmö"]').value;
-        travelDate = document.querySelector('input[type="date"]').value;
-        travelTransport = document.querySelector('#transport').value;
-
-        if (travelTo && travelFrom && travelDate && travelTransport) {
-            addNewTravelPlan(); // Lägg till ny resplan
-        } else {
-            alert('Vänligen fyll i alla fält'); // Visa varning
-        }
-    });
+    formatDate(dateString) {
+        return new Date(dateString).toLocaleDateString('sv-SE');
+    }
 }
+
+// Initialize the travel planner
+document.addEventListener('DOMContentLoaded', () => {
+    window.travelPlanner = new TravelPlanner();
+});
