@@ -1,0 +1,33 @@
+/* Reselistan */
+#travelList {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+#travelList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#travelList button {
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#travelList button:hover {
+    background-color: #45a049;
+}
