@@ -1,5 +1,6 @@
 import { test } from "./scripts/landingPage.js";
 import { testAlert } from "./scripts/test.js";
+import {}
 test();
 
 function init() {
