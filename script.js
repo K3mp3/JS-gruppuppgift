@@ -1,12 +1,16 @@
 import { test } from "./scripts/landingPage.js";
 import { testAlert } from "./scripts/test.js";
+
+import { submitTravelTo } from "./scripts/travelTo.js";
 test();
 
 function init() {
-    // let formTo = document.querySelector("#formTo");
-    // formTo.addEventListener("submit", testAlert);
-}
+  // let formTo = document.querySelector("#formTo");
+  // formTo.addEventListener("submit", testAlert);
 
+  let formTo = document.querySelector("#formTo");
+  formTo.addEventListener("submit", submitTravelTo);
+}
 
 init();
 // function init() {
