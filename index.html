@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./styling/reset.css" />
     <link rel="stylesheet" href="./styling/style.css" />
 
-    <script src="scripts/globalVariables.js" defer></script>
+    <script type="module" src="./scripts/globalVariables.js"></script>
     <script src="script.js" type="module" defer></script>
 
     <title>Reseplanerare</title>
@@ -35,14 +35,15 @@
       </section>
       <section class="landing-page">
         <h1>När vill du åka?</h1>
-        <form action="">
-          <label for="">
-            <span> Datum </span>
-            <input type="date" placeholder="2021-12-24" />
+        <form id="travelDateForm" action="">
+          <label for="travelDateInput">
+            <span>Datum</span>
+            <input type="date" id="travelDateInput" placeholder="2021-12-24" />
           </label>
           <button type="submit" class="button">Nästa</button>
         </form>
       </section>
+
       <section class="landing-page">
         <h1>Hur vill du resa?</h1>
         <form action="">

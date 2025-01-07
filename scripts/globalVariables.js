@@ -10,21 +10,46 @@ TODO: 2. Create an object that will store all the information about the travel p
 TODO: 3. Create an array that will store all the travel plans of the user.
 */
 
+// let travelTo = ''; // this is the variable that will store the location to which the user is traveling (string)
+// let travelFrom = ''; // this is the variable that will store the location from which the user is traveling (string)
+// let travelDate = ''; // this is the variable that will store the date of travel (string)
+// let travelTransport = ''; // this is the variable that will store the mode of transport (string)
+// let bucketList = []; // this is the variable that will store the list of places the user wants to visit (array) (string)
 
-let travelTo = "" // this is the variable that will store the location to which the user is traveling (string)
-let travelFrom = "" // this is the variable that will store the location from which the user is traveling (string)
-let travelDate = "" // this is the variable that will store the date of travel (string)
-let travelTransport = "" // this is the variable that will store the mode of transport (string)
-let bucketList = [] // this is the variable that will store the list of places the user wants to visit (array) (string)
+// // This is the object that will store all the information about the travel plan of the user
+// let travelPlan = {
+//   travelTo: '',
+//   travelFrom: '',
+//   travelDate: '',
+//   travelTransport: '',
+//   bucketList: [],
+// };
 
+// let travelPlans = []; // this is the variable that will store all the travel plans of the user (array) (object)
 
-// This is the object that will store all the information about the travel plan of the user
-let travelPlan = {
-    travelTo: "",
-    travelFrom: "",
-    travelDate: "",
-    travelTransport: "",
-    bucketList: []
-}
+// // globalVariables.js
 
-let travelPlans = [] // this is the variable that will store all the travel plans of the user (array) (object)
+// // Globala variabler
+
+//Med Type="module"
+
+// globalVariables.js
+export let travelTo = '';
+export let travelFrom = '';
+export let travelDate = '';
+export let travelTransport = '';
+export let bucketList = [];
+
+export const setTravelDate = (newDate) => {
+  travelDate = newDate;
+};
+
+export let travelPlan = {
+  travelTo: '',
+  travelFrom: '',
+  travelDate: '',
+  travelTransport: '',
+  bucketList: [],
+};
+
+export let travelPlans = [];

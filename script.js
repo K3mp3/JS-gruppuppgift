@@ -1,12 +1,16 @@
-import { test } from "./scripts/landingPage.js";
-import { testAlert } from "./scripts/test.js";
+import { test } from './scripts/landingPage.js';
+import { testAlert } from './scripts/test.js';
+import { handleTravelDateSubmit } from './scripts/travelDate.js';
 test();
 
 function init() {
-    // let formTo = document.querySelector("#formTo");
-    // formTo.addEventListener("submit", testAlert);
+  let travelDateForm = document.querySelector('#travelDateForm');
+  if (travelDateForm) {
+    travelDateForm.addEventListener('submit', handleTravelDateSubmit);
+  }
+  // let formTo = document.querySelector("#formTo");
+  // formTo.addEventListener("submit", testAlert);
 }
-
 
 init();
 // function init() {
