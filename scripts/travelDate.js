@@ -1,6 +1,22 @@
 // Let travelDate be a global variable to store the selected travel date
 export let travelDate = '';
 
+// Array of month names (0 = January, 1 = February, ..., 11 = December)
+const monthNames = [
+  'Januari',
+  'Februari',
+  'Mars',
+  'April',
+  'Maj',
+  'Juni',
+  'Juli',
+  'Augusti',
+  'September',
+  'Oktober',
+  'November',
+  'December',
+];
+
 export function submitTravelDate(event) {
   event.preventDefault(); // Prevents the form from reloading the page
 
@@ -18,8 +34,14 @@ export function submitTravelDate(event) {
   // Convert the selected date to [year, month, day] format
   const dateObj = new Date(selectedDate);
   const year = dateObj.getFullYear();
-  const month = dateObj.getMonth() + 1; // Months are zero-based
+  const month = dateObj.getMonth(); // Get the month index (0-11)
   const day = dateObj.getDate(); // Get the day of the month
+
+  // Debug: Log the month index and the corresponding month name
+  console.log('Månadsindex:', month);
+  console.log('Månadsnamn:', monthNames[month]);
+
+  // Store the full date as [year, month, day]
   travelDate = [year, month, day];
 
   console.log('Resedatum (år, månad, dag):', travelDate); // Verify the stored value
@@ -37,6 +59,7 @@ export function submitTravelDate(event) {
   // Update text or content in the next section if needed
   const dateDisplay = document.getElementById('date-display');
   if (dateDisplay) {
-    dateDisplay.textContent = `Ditt valda resedatum är: ${year}-${month}-${day}`;
+    // Use the monthNames array to display the month's name instead of its number
+    dateDisplay.textContent = `${day} ${monthNames[month]} ${year}`;
   }
 }
