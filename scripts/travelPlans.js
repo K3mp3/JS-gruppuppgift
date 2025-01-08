@@ -1,11 +1,3 @@
-// Constants
-const TRANSPORT_TYPES = {
-    car: 'Bil',
-    train: 'Tåg',
-    bus: 'Buss',
-    plane: 'Flyg'
-};
-
 export class TravelPlanner {
     constructor() {
         this.travelPlans = [];
