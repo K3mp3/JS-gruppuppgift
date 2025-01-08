@@ -1,35 +1,42 @@
-import { setTravelDate } from './globalVariables.js'; // Importera setTravelDate från globalVariables.js
+// Let travelDate be a global variable to store the selected travel date
+export let travelDate = '';
 
-export const handleTravelDateSubmit = (event) => {
-  event.preventDefault();
-  console.log('Formuläret har skickats, förhindrar reload...');
+export function submitTravelDate(event) {
+  event.preventDefault(); // Prevents the form from reloading the page
 
-  // Hämta värdet från inputfältet
-  let travelDateInput = document.querySelector('#travelDateInput'); // Matcha ID från HTML
-  let selectedDate = travelDateInput.value;
-  console.log('Användarens valda datum:', selectedDate);
+  // Fetch the user's input from the date field
+  const dateInputElement = document.querySelector(
+    "#formDate input[type='date']"
+  );
+  const selectedDate = dateInputElement.value;
 
-  // Uppdatera den globala variabeln och travelPlan
-  function updateTravelDate() {
-    // Referera direkt till globala travelDate och travelPlan
-    travelDate = selectedDate; // Uppdatera den globala variabeln
-    travelPlan.travelDate = selectedDate; // Uppdatera objektet i travelPlan
-  }
-
-  // Validera att ett datum är valt
   if (!selectedDate) {
-    alert('Vänligen välj ett datum.');
-    console.log('Datum inte valt, avbryter...');
-    return; // Avbryt funktionen om inget datum är valt
+    alert('Vänligen välj ett datum för att fortsätta');
+    return;
   }
 
-  setTravelDate(selectedDate);
+  // Convert the selected date to [year, month, day] format
+  const dateObj = new Date(selectedDate);
+  const year = dateObj.getFullYear();
+  const month = dateObj.getMonth() + 1; // Months are zero-based
+  const day = dateObj.getDate(); // Get the day of the month
+  travelDate = [year, month, day];
 
-  // Bekräfta sparandet
-  console.log('Resedatum sparat:', selectedDate);
-};
+  console.log('Resedatum (år, månad, dag):', travelDate); // Verify the stored value
 
-// Lägg till eventlyssnare för formuläret
-document
-  .querySelector('#travelDateForm')
-  .addEventListener('submit', handleTravelDateSubmit);
+  // Hide the current section
+  const currentSection = document.querySelector('.landing-page:nth-child(3)');
+  currentSection.classList.add('hidden');
+
+  // Show the next section
+  const nextSection = document.querySelector('.landing-page:nth-child(4)');
+  if (nextSection) {
+    nextSection.classList.remove('hidden');
+  }
+
+  // Update text or content in the next section if needed
+  const dateDisplay = document.getElementById('date-display');
+  if (dateDisplay) {
+    dateDisplay.textContent = `Ditt valda resedatum är: ${year}-${month}-${day}`;
+  }
+}

@@ -1,12 +1,16 @@
 import { test } from './scripts/landingPage.js';
 import { testAlert } from './scripts/test.js';
-import { handleTravelDateSubmit } from './scripts/travelDate.js';
+import { submitTravelDate } from './scripts/travelDate.js';
+document
+  .querySelector('#formDate')
+  .addEventListener('submit', submitTravelDate);
+
 test();
 
 function init() {
   let travelDateForm = document.querySelector('#travelDateForm');
   if (travelDateForm) {
-    travelDateForm.addEventListener('submit', handleTravelDateSubmit);
+    travelDateForm.addEventListener('submit', submitTravelDate);
   }
   // let formTo = document.querySelector("#formTo");
   // formTo.addEventListener("submit", testAlert);
