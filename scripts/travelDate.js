@@ -37,10 +37,6 @@ export function submitTravelDate(event) {
   const month = dateObj.getMonth(); // Get the month index (0-11)
   const day = dateObj.getDate(); // Get the day of the month
 
-  // Debug: Log the month index and the corresponding month name
-  console.log('Månadsindex:', month);
-  console.log('Månadsnamn:', monthNames[month]);
-
   // Store the full date as [year, month, day]
   travelDate = [year, month, day];
 

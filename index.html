@@ -26,7 +26,7 @@
       </section>
 
       <!-- Sektion för att ange resenärens hemstad -->
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1>Vart åker du ifrån?</h1>
         <form>
           <label>
@@ -38,9 +38,9 @@
       </section>
 
       <!-- Sektion för att välja resedatum -->
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1>När vill du åka?</h1>
-        <form id="formDate" onSubmit="submitTravelDate(event)">
+        <form id="formDate">
           <label>
             <span>Datum</span>
             <input type="date" id="travelDateInput" placeholder="2021-12-24" />
@@ -50,7 +50,7 @@
       </section>
 
       <!-- Sektion för att välja transportmedel -->
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1>Hur vill du resa?</h1>
         <form>
           <label>
@@ -67,7 +67,7 @@
       </section>
 
       <!-- Sektion för sammanfattning av resan -->
-      <section class="summary-container">
+      <section class="summary-container hidden">
         <h1>Resesammanfattning</h1>
         <div class="summary">
           <p>Resa från: Malmö</p>
@@ -82,7 +82,7 @@
       </section>
 
       <!-- Sektion för alternativa resor -->
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <ul>
           <li>Stockholm till Göteborg</li>
           <li>Malmö till Göteborg</li>

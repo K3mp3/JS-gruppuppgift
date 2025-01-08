@@ -1,17 +1,14 @@
 import { test } from './scripts/landingPage.js';
 import { testAlert } from './scripts/test.js';
 import { submitTravelDate } from './scripts/travelDate.js';
+
 document
-  .querySelector('#formDate')
-  .addEventListener('submit', submitTravelDate);
+  .getElementById('formDate')
+  .addEventListener('submit', submitTravelDate); // Lägg till lyssnaren här
 
 test();
 
 function init() {
-  let travelDateForm = document.querySelector('#travelDateForm');
-  if (travelDateForm) {
-    travelDateForm.addEventListener('submit', submitTravelDate);
-  }
   // let formTo = document.querySelector("#formTo");
   // formTo.addEventListener("submit", testAlert);
 }
