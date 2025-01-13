@@ -78,7 +78,7 @@ function displayTravelPlans() {
                 <h4>Planerade aktiviteter:</h4>
                 <ul>
                     ${plan.bucketList
-                      .map((item) => `<li>${item}</li>`)
+                      .map((item) => `<li>${item.todo}</li>`)
                       .join("")}
                 </ul>
                 <button onclick="deleteTravelPlan(${plan.id})">Radera</button>
