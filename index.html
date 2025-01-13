@@ -13,7 +13,12 @@
   </head>
   <body>
     <main>
+<<<<<<< HEAD
+      <!-- Sektion för att ange resmål -->
+      <section class="landing-page">
+=======
       <section class="landing-page hidden">
+>>>>>>> c4a6c8a4280deec9aa583aba5683c7b56fe75424
         <h1>Vart vill du resa?</h1>
         <form id="formTo">
           <!-- onsubmit-->
@@ -32,29 +37,40 @@
       <!-- -->
       <section class="landing-page">
         <h1>Vart åker du ifrån?</h1>
+<<<<<<< HEAD
+        <form>
+          <label>
+            <span>Från</span>
+            <input type="text" placeholder="Malmö" />
+=======
         <form id="formFrom">
           <label for="">
             <span> Från </span>
             <input type="text" id="user-input" placeholder="Malmö" />
+>>>>>>> c4a6c8a4280deec9aa583aba5683c7b56fe75424
           </label>
           <button type="submit" class="button">Nästa</button>
         </form>
       </section>
+
+      <!-- Sektion för att välja resedatum -->
       <section class="landing-page">
         <h1>När vill du åka?</h1>
-        <form action="">
-          <label for="">
-            <span> Datum </span>
-            <input type="date" placeholder="2021-12-24" />
+        <form id="formDate">
+          <label>
+            <span>Datum</span>
+            <input type="date" id="travelDateInput" placeholder="2021-12-24" />
           </label>
           <button type="submit" class="button">Nästa</button>
         </form>
       </section>
+
+      <!-- Sektion för att välja transportmedel -->
       <section class="landing-page">
         <h1>Hur vill du resa?</h1>
-        <form action="">
-          <label for="">
-            <span> Transportmedel </span>
+        <form>
+          <label>
+            <span>Transportmedel</span>
             <select name="transport" id="transport">
               <option value="car">Bil</option>
               <option value="train">Tåg</option>
@@ -66,25 +82,22 @@
         </form>
       </section>
 
+      <!-- Sektion för sammanfattning av resan -->
       <section class="summary-container">
         <h1>Resesammanfattning</h1>
         <div class="summary">
           <p>Resa från: Malmö</p>
           <p>Resa till: Stockholm</p>
-          <p>Datum: 2021-12-24</p>
+          <p>Datum: <span id="date-display">2021-12-24</span></p>
           <p>Transportmedel: Tåg</p>
         </div>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
         <form>
           <input type="text" placeholder="Besöka Museum" />
           <button type="submit" class="button">Boka resa</button>
         </form>
       </section>
+
+      <!-- Sektion för alternativa resor -->
       <section class="landing-page">
         <ul>
           <li>Stockholm till Göteborg</li>
