@@ -10,6 +10,11 @@ function init() {
 
   let formTo = document.querySelector("#formTo");
   formTo.addEventListener("submit", submitTravelTo);
+
+  addTravelPlan();
+  addTravelPlan();
+  addTravelPlan();
+  displayTravelPlans();
 }
 
 init();

@@ -1,21 +1,19 @@
-.travelPlans{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 16px;
-    height:40px;
-  
-  }
-  
-  .travelPlansListItem {
-    border: solid 2px #000;
-  }
+.travel-plans {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
 
-  .button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
+.travel-summary {
+  border: solid 2px #000;
+}
+
+.button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
