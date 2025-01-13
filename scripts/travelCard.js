@@ -27,8 +27,15 @@ export let initTravelCard = () => {
   document.querySelector(".travel-card-date").textContent =
     travelPlan.travelDate;
 
+  let travelTransportTranslate = {
+    car: "Bil",
+    train: "Tåg",
+    bus: "Buss",
+    plane: "Flyg",
+  };
+
   document.querySelector(".travel-card-transport").textContent =
-    travelPlan.travelTransport;
+    travelTransportTranslate[travelPlan.travelTransport];
 
   todoInputElement.focus();
 };
@@ -110,6 +117,8 @@ let saveTravelPlan = () => {
 
   document.querySelectorAll(".landing-page")[4].classList.add("hidden");
   document.querySelectorAll(".landing-page")[5].classList.remove("hidden");
+
+  displayTravelPlans();
 };
 
 export let createRandomTravelPlan = () => {

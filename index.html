@@ -9,8 +9,6 @@
     <script src="scripts/globalVariables.js" defer></script>
     <script src="scripts/travelPlans.js" defer></script>
     <script src="script.js" type="module" defer></script>
-    <script src="scripts/travelTransport.js" defer></script>
-
     <title>Reseplanerare</title>
   </head>
   <body>
@@ -33,7 +31,7 @@
         <p>Du har valt att resa till: <span id="destination-display"></span></p>
       </section> -->
       <!-- -->
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1>Vart åker du ifrån?</h1>
         <form id="formFrom">
           <label for="">
@@ -45,7 +43,7 @@
       </section>
 
       <!-- Sektion för att välja resedatum -->
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1>När vill du åka?</h1>
         <form id="formDate">
           <label>
@@ -57,9 +55,9 @@
       </section>
 
       <!-- Sektion för att välja transportmedel -->
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1>Hur vill du resa?</h1>
-        <form action="#">
+        <form action="#" class="travel-transport-form">
           <label for="transport">
             <span> Transportmedel </span>
             <select name="transport" id="transport">
@@ -73,7 +71,7 @@
         </form>
       </section>
 
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <div class="travel-card-container">
           <div class="travel-card">
             <h1 class="travel-card-title"></h1>
@@ -140,7 +138,7 @@
       </section>
 
       <!-- Sektion för alternativa resor -->
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1>Planerade resor</h1>
         <div id="travelList" class="travel-plans"></div>
         <!-- <ul class="travelPlans">

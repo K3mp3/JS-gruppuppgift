@@ -1,3 +1,4 @@
+//  Function used for adding a new travel plan to the list of travel plans used as debug data
 function addTravelPlan() {
   //   const newPlan = {
   //     travelTo: travelTo,
@@ -68,19 +69,19 @@ function displayTravelPlans() {
             <div class="travel-summary" onclick="toggleDetails(${plan.id})">
                 <span>${plan.travelFrom} ➜ ${plan.travelTo}</span>
                 <span>${getTransportIcon(plan.travelTransport)}</span>
-                <span>${plan.bucketList.length} activities planned</span>
+                <span>${plan.bucketList.length} Aktiviteter planerade</span>
             </div>
             <div id="details-${
               plan.id
             }" class="travel-details" style="display: none">
-                <p>Date: ${plan.travelDate}</p>
-                <h4>Planned Activities:</h4>
+                <p>Datum: ${plan.travelDate}</p>
+                <h4>Planerade aktiviteter:</h4>
                 <ul>
                     ${plan.bucketList
                       .map((item) => `<li>${item}</li>`)
                       .join("")}
                 </ul>
-                <button onclick="deleteTravelPlan(${plan.id})">Delete</button>
+                <button onclick="deleteTravelPlan(${plan.id})">Radera</button>
             </div>
         `;
 
