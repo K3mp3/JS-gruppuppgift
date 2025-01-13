@@ -17,16 +17,18 @@ export function submitTravelTo(event) {
 
   console.log("Resmål:", travelTo); // kontrollera att värdet lagras
 
-  // dölj den aktuella sektionen
-  const currentSection = document.querySelector(".landing-page");
-  currentSection.classList.add("hidden");
+  goToNextSection(); // anropa funktionen goToNextSection
 
-  // visa nästa sektion
-  //   const nextSection = document.querySelector(".next-section");
-  //   if (nextSection) {
-  //     nextSection.style.display = "block";
-  //   }
-  document.querySelectorAll(".landing-page")[1].classList.remove("hidden");
+  // // dölj den aktuella sektionen
+  // const currentSection = document.querySelector(".landing-page");
+  // currentSection.classList.add("hidden");
+
+  // // visa nästa sektion
+  // //   const nextSection = document.querySelector(".next-section");
+  // //   if (nextSection) {
+  // //     nextSection.style.display = "block";
+  // //   }
+  // document.querySelectorAll(".landing-page")[1].classList.remove("hidden");
 
   // uppdatera texten i nästa sektion
   //   const destinationDisplay = document.getElementById("destination-display");

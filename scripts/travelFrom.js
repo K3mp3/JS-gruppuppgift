@@ -8,6 +8,7 @@ export const submitTravelForm = (event) => {
   }
 
   travelFrom = userInput;
-  document.querySelectorAll(".landing-page")[1].classList.add("hidden");
-  document.querySelectorAll(".landing-page")[2].classList.remove("hidden");
+  // document.querySelectorAll(".landing-page")[1].classList.add("hidden");
+  // document.querySelectorAll(".landing-page")[2].classList.remove("hidden");
+  goToNextSection();
 };

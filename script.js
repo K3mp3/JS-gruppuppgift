@@ -15,17 +15,14 @@ function init() {
   // let formTo = document.querySelector("#formTo");
   // formTo.addEventListener("submit", testAlert);
 
+  let formTo = document.querySelector("#formTo");
+  formTo.querySelector("input").focus();
+  formTo.addEventListener("submit", submitTravelTo);
+
   let formFrom = document.querySelector("#formFrom");
 
   formFrom.addEventListener("submit", submitTravelForm);
-  let formTo = document.querySelector("#formTo");
-  formTo.addEventListener("submit", submitTravelTo);
 
-  // for (let i = 0; i < 20; i++) {
-  //   createRandomTravelPlan();
-  // }
-
-  displayTravelPlans(); // Display the travel plans
   document
     .getElementById("formDate")
     .addEventListener("submit", submitTravelDate); // Lägg till lyssnaren här
