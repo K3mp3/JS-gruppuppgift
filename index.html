@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styling/style.css" />
 
     <script src="scripts/globalVariables.js" defer></script>
+    <script src="scripts/travelPlans.js" defer></script>
     <script src="script.js" type="module" defer></script>
     <script src="scripts/travelTransport.js" defer></script>
 
@@ -14,12 +15,8 @@
   </head>
   <body>
     <main>
-<<<<<<< HEAD
       <!-- Sektion för att ange resmål -->
       <section class="landing-page">
-=======
-      <section class="landing-page hidden">
->>>>>>> c4a6c8a4280deec9aa583aba5683c7b56fe75424
         <h1>Vart vill du resa?</h1>
         <form id="formTo">
           <!-- onsubmit-->
@@ -38,17 +35,10 @@
       <!-- -->
       <section class="landing-page">
         <h1>Vart åker du ifrån?</h1>
-<<<<<<< HEAD
-        <form>
-          <label>
-            <span>Från</span>
-            <input type="text" placeholder="Malmö" />
-=======
         <form id="formFrom">
           <label for="">
             <span> Från </span>
             <input type="text" id="user-input" placeholder="Malmö" />
->>>>>>> c4a6c8a4280deec9aa583aba5683c7b56fe75424
           </label>
           <button type="submit" class="button">Nästa</button>
         </form>
@@ -83,27 +73,81 @@
         </form>
       </section>
 
-      <!-- Sektion för sammanfattning av resan -->
-      <section class="summary-container">
-        <h1>Resesammanfattning</h1>
-        <div class="summary">
-          <p>Resa från: Malmö</p>
-          <p>Resa till: Stockholm</p>
-          <p>Datum: <span id="date-display">2021-12-24</span></p>
-          <p>Transportmedel: Tåg</p>
+      <section class="landing-page">
+        <div class="travel-card-container">
+          <div class="travel-card">
+            <h1 class="travel-card-title"></h1>
+            <div class="travel-card-date-transport-container">
+              <div
+                class="travel-card-date-button travel-card-date-transport-button"
+              >
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#e8eaed"
+                  >
+                    <path
+                      d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"
+                    />
+                  </svg>
+                </span>
+                <span class="travel-card-date">[placeholder]</span>
+              </div>
+              <div
+                class="travel-card-transport-button travel-card-date-transport-button"
+              >
+                <span
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#e8eaed"
+                  >
+                    <path
+                      d="M120-120v-80h720v80H120Zm70-200L40-570l96-26 112 94 140-37-207-276 116-31 299 251 170-46q32-9 60.5 7.5T864-585q9 32-7.5 60.5T808-487L190-320Z"
+                    />
+                  </svg>
+                </span>
+                <span class="travel-card-transport">[placeholder]</span>
+              </div>
+            </div>
+            <h2 class="travel-card-subtitle">Vad ska du göra där?</h2>
+            <div class="travel-card-todo-list">
+              <!-- <div class="todo-item-container" style="cursor: pointer">
+                <input type="checkbox" class="todo-checkbox" />
+                <div class="todo-item">dsa</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="travel-card-end-container">
+            <form class="travel-card-todo-input-container">
+              <input
+                type="text"
+                class="travel-card-todo-input"
+                placeholder="Add a todo"
+              />
+              <button class="travel-card-todo-button" type="submit">
+                Lägg till
+              </button>
+            </form>
+            <button class="travel-card-button">Planera</button>
+          </div>
         </div>
-        <form>
-          <input type="text" placeholder="Besöka Museum" />
-          <button type="submit" class="button">Boka resa</button>
-        </form>
       </section>
 
       <!-- Sektion för alternativa resor -->
       <section class="landing-page">
-        <ul>
-          <li>Stockholm till Göteborg</li>
-          <li>Malmö till Göteborg</li>
-        </ul>
+        <h1>Planerade resor</h1>
+        <div id="travelList" class="travel-plans"></div>
+        <!-- <ul class="travelPlans">
+          <li class="travelPlansListItem">stockholm till malmö</li>
+          <li class="travelPlansListItem">malmö till stockholm</li>
+
+        </ul> -->
       </section>
     </main>
   </body>
