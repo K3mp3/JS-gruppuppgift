@@ -3,7 +3,7 @@ export const submitTravelForm = (event) => {
   const userInput = document.getElementById("user-input").value;
 
   if (userInput === "") {
-    alert("Please enter a valid location");
+    alert("Du måste skriva in en plats");
     return;
   }
 

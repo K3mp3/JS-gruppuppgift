@@ -50,7 +50,7 @@ let submitTodo = (event) => {
   let todo = todoInputElement.value;
 
   if (todo === "") {
-    alert("Please enter a todo");
+    alert("Du måste skriva något i din att göra-lista");
     return;
   }
 
