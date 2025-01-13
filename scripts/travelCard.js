@@ -27,6 +27,9 @@ export let initTravelCard = () => {
   document.querySelector(".travel-card-date").textContent =
     travelPlan.travelDate;
 
+  document.querySelector(".travel-card-transport-icon").textContent =
+    getTransportIcon(travelPlan.travelTransport);
+
   let travelTransportTranslate = {
     car: "Bil",
     train: "Tåg",
