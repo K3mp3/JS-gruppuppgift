@@ -13,7 +13,7 @@
   </head>
   <body>
     <main>
-      <section class="landing-page">
+      <section class="landing-page hidden">
         <h1>Vart vill du resa?</h1>
         <form id="formTo">
           <!-- onsubmit-->
@@ -32,10 +32,10 @@
       <!-- -->
       <section class="landing-page">
         <h1>Vart åker du ifrån?</h1>
-        <form>
+        <form id="formFrom">
           <label for="">
             <span> Från </span>
-            <input type="text" placeholder="Malmö" />
+            <input type="text" id="user-input" placeholder="Malmö" />
           </label>
           <button type="submit" class="button">Nästa</button>
         </form>
