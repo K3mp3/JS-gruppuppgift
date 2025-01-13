@@ -1,7 +1,10 @@
 import { test } from "./scripts/landingPage.js";
 import { testAlert } from "./scripts/test.js";
 import { submitTravelTo } from "./scripts/travelTo.js";
-
+import {
+  initTravelCard,
+  createRandomTravelPlan,
+} from "./scripts/travelCard.js";
 test();
 
 function init() {
@@ -11,10 +14,13 @@ function init() {
   let formTo = document.querySelector("#formTo");
   formTo.addEventListener("submit", submitTravelTo);
 
-  addTravelPlan();
-  addTravelPlan();
-  addTravelPlan();
-  displayTravelPlans();
+  initTravelCard();
+
+  // for (let i = 0; i < 20; i++) {
+  //   createRandomTravelPlan();
+  // }
+
+  displayTravelPlans(); // Display the travel plans
 }
 
 init();

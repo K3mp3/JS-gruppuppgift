@@ -80,7 +80,6 @@ function displayTravelPlans() {
                       .map((item) => `<li>${item}</li>`)
                       .join("")}
                 </ul>
-                <button onclick="editPlan(${plan.id})">Edit</button>
                 <button onclick="deleteTravelPlan(${plan.id})">Delete</button>
             </div>
         `;
@@ -98,21 +97,6 @@ function getTransportIcon(transport) {
     boat: "⛴️",
   };
   return icons[transport.toLowerCase()] || "🚗";
-}
-
-function editPlan(planId) {
-  const plan = travelPlans.find((p) => p.id === planId);
-  if (plan) {
-    travelTo = plan.travelTo;
-    travelFrom = plan.travelFrom;
-    travelDate = plan.travelDate;
-    travelTransport = plan.travelTransport;
-    bucketList = [...plan.bucketList];
-
-    travelPlans = travelPlans.filter((p) => p.id !== planId);
-
-    window.location.href = "edit-trip.html";
-  }
 }
 
 // document.addEventListener("DOMContentLoaded", () => {
