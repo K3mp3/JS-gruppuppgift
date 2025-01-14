@@ -6,12 +6,17 @@
   justify-content: center;
   flex-direction: column;
   gap: 16px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 90%;
 }
 
 .travel-summary {
   cursor: pointer;
   padding: 1rem 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .travel-plan {
@@ -29,11 +34,8 @@
   }
 
   border-radius: 0.5rem;
-  transition: transform 0.3s ease;
 
-  &:hover {
-    transform: scale(1.025);
-  }
+  width: 100%;
 }
 
 .travel-details {
