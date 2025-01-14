@@ -1,6 +1,6 @@
 import { test } from "./scripts/landingPage.js";
 import { submitTravelTo } from "./scripts/travelTo.js";
-import { submitTravelForm } from "./scripts/travelFrom.js";
+import { submitTravelFrom } from "./scripts/travelFrom.js";
 import { submitTravelDate } from "./scripts/travelDate.js";
 import { updateTravelTransport } from "./scripts/travelTransport.js";
 
@@ -16,7 +16,7 @@ function init() {
 
   let formFrom = document.querySelector("#formFrom");
 
-  formFrom.addEventListener("submit", submitTravelForm);
+  formFrom.addEventListener("submit", submitTravelFrom);
 
   document
     .getElementById("formDate")

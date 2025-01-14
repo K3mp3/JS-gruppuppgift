@@ -1,19 +1,24 @@
-let todoInputElement = document.querySelector(".travel-card-todo-input");
+let EventlistenerAdded = false;
 
 // Object to store the travel plans
 export let initTravelCard = () => {
   // onsubmit="return submitTodo(event)"
-  document
-    .querySelector(".travel-card-todo-input-container")
-    .addEventListener("submit", (event) => {
-      submitTodo(event);
-    });
 
-  document
-    .querySelector(".travel-card-button")
-    .addEventListener("click", () => {
-      saveTravelPlan();
-    });
+  if (!EventlistenerAdded) {
+    document
+      .querySelector(".travel-card-todo-input-container")
+      .addEventListener("submit", (event) => {
+        submitTodo(event);
+      });
+
+    document
+      .querySelector(".travel-card-button")
+      .addEventListener("click", () => {
+        saveTravelPlan();
+      });
+  }
+
+  EventlistenerAdded = true;
 
   travelPlan.travelTo = travelTo;
   travelPlan.travelFrom = travelFrom;
@@ -40,16 +45,17 @@ export let initTravelCard = () => {
   document.querySelector(".travel-card-transport").textContent =
     travelTransportTranslate[travelPlan.travelTransport];
 
-  todoInputElement.focus();
+  document.querySelector(".travel-card-todo-input").focus();
 };
 
 //  Used to submit a todo item to the bucket list
 let submitTodo = (event) => {
   event.preventDefault();
 
-  let todo = todoInputElement.value;
+  let todo = document.querySelector(".travel-card-todo-input").value;
 
   if (todo === "") {
+    console.log(todo);
     alert("Du måste skriva något i din att göra-lista");
     return;
   }
@@ -90,11 +96,11 @@ let submitTodo = (event) => {
     .querySelector(".travel-card-todo-list")
     .appendChild(todoParentElement);
 
-  todoInputElement.value = "";
+  document.querySelector(".travel-card-todo-input").value = "";
 };
 
 //  Used to check the todo item in the bucket list
-export let checkTodo = (todo) => {
+let checkTodo = (todo) => {
   let todoIndex = travelPlan.bucketList.findIndex((item) => item.todo === todo);
   travelPlan.bucketList[todoIndex].checked =
     !travelPlan.bucketList[todoIndex].checked;
