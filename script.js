@@ -1,10 +1,5 @@
 import { test } from "./scripts/landingPage.js";
-import { testAlert } from "./scripts/test.js";
 import { submitTravelTo } from "./scripts/travelTo.js";
-import {
-  initTravelCard,
-  createRandomTravelPlan,
-} from "./scripts/travelCard.js";
 import { submitTravelForm } from "./scripts/travelFrom.js";
 import { submitTravelDate } from "./scripts/travelDate.js";
 import { updateTravelTransport } from "./scripts/travelTransport.js";
