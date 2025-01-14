@@ -94,7 +94,7 @@ let submitTodo = (event) => {
 };
 
 //  Used to check the todo item in the bucket list
-let checkTodo = (todo) => {
+export let checkTodo = (todo) => {
   let todoIndex = travelPlan.bucketList.findIndex((item) => item.todo === todo);
   travelPlan.bucketList[todoIndex].checked =
     !travelPlan.bucketList[todoIndex].checked;
@@ -124,22 +124,22 @@ let saveTravelPlan = () => {
   displayTravelPlans();
 };
 
-export let createRandomTravelPlan = () => {
-  travelPlan.travelTo = `Stockholm {${Math.floor(Math.random() * 100)}}`;
-  travelPlan.travelFrom = "Gothenburg";
-  travelPlan.travelDate = "2022-12-24";
-  travelPlan.travelTransport = "Train";
-  travelPlan.bucketList = ["Gamla Stan", "Vasa Museum", "Skansen"];
+// export let createRandomTravelPlan = () => {
+//   travelPlan.travelTo = `Stockholm {${Math.floor(Math.random() * 100)}}`;
+//   travelPlan.travelFrom = "Gothenburg";
+//   travelPlan.travelDate = "2022-12-24";
+//   travelPlan.travelTransport = "Train";
+//   travelPlan.bucketList = ["Gamla Stan", "Vasa Museum", "Skansen"];
 
-  travelPlan.id = globalID;
-  globalID++;
-  travelPlans.push(travelPlan);
-  console.log(travelPlans);
-  travelPlan = {
-    travelTo: "",
-    travelFrom: "",
-    travelDate: "",
-    travelTransport: "",
-    bucketList: [],
-  };
-};
+//   travelPlan.id = globalID;
+//   globalID++;
+//   travelPlans.push(travelPlan);
+//   console.log(travelPlans);
+//   travelPlan = {
+//     travelTo: "",
+//     travelFrom: "",
+//     travelDate: "",
+//     travelTransport: "",
+//     bucketList: [],
+//   };
+// };

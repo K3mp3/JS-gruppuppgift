@@ -18,7 +18,7 @@ let bucketList = []; // this is the variable that will store the list of places 
 let globalID = 0; // this is the variable that will store the unique ID for each travel plan (number)
 
 // This is the object that will store all the information about the travel plan of the user
-let travelPlan = {
+export let travelPlan = {
   travelTo: "",
   travelFrom: "",
   travelDate: "",
