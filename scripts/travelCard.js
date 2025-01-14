@@ -1,4 +1,4 @@
-let EventlistenerAdded = false;
+let EventlistenerAdded = false; // Used to check if the event listener has been added to the travel card since there was a bug when the event listener was added multiple times
 
 // Object to store the travel plans
 export let initTravelCard = () => {
