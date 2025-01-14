@@ -1,34 +1,19 @@
-// Select the form and the transport select element
-const transportForm = document.querySelector('form[action="#"]');
-const transportSelect = document.querySelector('#transport');
+import { initTravelCard } from "./travelCard.js";
+
+const transportSelect = document.querySelector("#transport");
 
 // Function to update global variable and travelPlan object
-function updateTravelTransport() {
-    travelTransport = transportSelect.value; // Update global variable
-    travelPlan.travelTransport = travelTransport; // Update travelPlan object
-}
+export function updateTravelTransport(event) {
+  event.preventDefault(); // Prevent the form from submitting
+  travelTransport = transportSelect.value; // Update global variable
+  travelPlan.travelTransport = travelTransport; // Update travelPlan object
+  // // Hide current section
+  // document.querySelectorAll(".landing-page")[3].classList.add("hidden");
 
-transportForm.addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent page reload
-  
-    // Update transport information
-    updateTravelTransport();
-  
-    // Hide current section
-    const currentSection = transportForm.closest('.landing-page');
-    if (currentSection) {
-      currentSection.style.display = 'none';
-    } else {
-      console.error('Current section not found.');
-    }
-  
-    // Display the next section (assuming it’s the summary container)
-    const nextSection = document.querySelector('.summary-container');
-    if (nextSection) {
-      nextSection.style.display = 'block';
-    } else {
-      console.error('Next section not found.');
-    }
-  
-    console.log('Updated travelPlan:', travelPlan); // For testing
-  });
+  // document.querySelectorAll(".landing-page")[4].classList.remove("hidden");
+
+  goToNextSection();
+
+  initTravelCard();
+  console.log("Updated travelPlan:", travelPlan); // For testing
+}

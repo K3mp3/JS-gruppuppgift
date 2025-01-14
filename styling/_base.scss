@@ -1,3 +1,31 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8d5bd2;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a882df;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body {
+  background: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+}
+
 .hidden {
   display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -28,3 +28,17 @@ let travelPlan = {
 };
 
 let travelPlans = []; // this is the variable that will store all the travel plans of the user (array) (object)
+
+// Function used to go to next section in the form
+let goToNextSection = () => {
+  let currentSection = document.querySelector(".landing-page:not(.hidden)");
+  let nextSection = currentSection.nextElementSibling;
+  currentSection.classList.add("hidden");
+  nextSection.classList.remove("hidden");
+
+  if (nextSection.querySelector("input") !== null) {
+    nextSection.querySelector("input").focus();
+  } else if (nextSection.querySelector("select") !== null) {
+    nextSection.querySelector("select").focus();
+  }
+};

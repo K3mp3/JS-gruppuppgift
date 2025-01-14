@@ -1,19 +1,24 @@
-let todoInputElement = document.querySelector(".travel-card-todo-input");
+let EventlistenerAdded = false; // Used to check if the event listener has been added to the travel card since there was a bug when the event listener was added multiple times
 
 // Object to store the travel plans
 export let initTravelCard = () => {
   // onsubmit="return submitTodo(event)"
-  document
-    .querySelector(".travel-card-todo-input-container")
-    .addEventListener("submit", (event) => {
-      submitTodo(event);
-    });
 
-  document
-    .querySelector(".travel-card-button")
-    .addEventListener("click", () => {
-      saveTravelPlan();
-    });
+  if (!EventlistenerAdded) {
+    document
+      .querySelector(".travel-card-todo-input-container")
+      .addEventListener("submit", (event) => {
+        submitTodo(event);
+      });
+
+    document
+      .querySelector(".travel-card-button")
+      .addEventListener("click", () => {
+        saveTravelPlan();
+      });
+  }
+
+  EventlistenerAdded = true;
 
   travelPlan.travelTo = travelTo;
   travelPlan.travelFrom = travelFrom;
@@ -27,20 +32,31 @@ export let initTravelCard = () => {
   document.querySelector(".travel-card-date").textContent =
     travelPlan.travelDate;
 
-  document.querySelector(".travel-card-transport").textContent =
-    travelPlan.travelTransport;
+  document.querySelector(".travel-card-transport-icon").textContent =
+    getTransportIcon(travelPlan.travelTransport);
 
-  todoInputElement.focus();
+  let travelTransportTranslate = {
+    car: "Bil",
+    train: "Tåg",
+    bus: "Buss",
+    plane: "Flyg",
+  };
+
+  document.querySelector(".travel-card-transport").textContent =
+    travelTransportTranslate[travelPlan.travelTransport];
+
+  document.querySelector(".travel-card-todo-input").focus();
 };
 
 //  Used to submit a todo item to the bucket list
 let submitTodo = (event) => {
   event.preventDefault();
 
-  let todo = todoInputElement.value;
+  let todo = document.querySelector(".travel-card-todo-input").value;
 
   if (todo === "") {
-    alert("Please enter a todo");
+    console.log(todo);
+    alert("Du måste skriva något i din att göra-lista");
     return;
   }
 
@@ -80,7 +96,7 @@ let submitTodo = (event) => {
     .querySelector(".travel-card-todo-list")
     .appendChild(todoParentElement);
 
-  todoInputElement.value = "";
+  document.querySelector(".travel-card-todo-input").value = "";
 };
 
 //  Used to check the todo item in the bucket list
@@ -110,24 +126,26 @@ let saveTravelPlan = () => {
 
   document.querySelectorAll(".landing-page")[4].classList.add("hidden");
   document.querySelectorAll(".landing-page")[5].classList.remove("hidden");
+
+  displayTravelPlans();
 };
 
-export let createRandomTravelPlan = () => {
-  travelPlan.travelTo = `Stockholm {${Math.floor(Math.random() * 100)}}`;
-  travelPlan.travelFrom = "Gothenburg";
-  travelPlan.travelDate = "2022-12-24";
-  travelPlan.travelTransport = "Train";
-  travelPlan.bucketList = ["Gamla Stan", "Vasa Museum", "Skansen"];
+// export let createRandomTravelPlan = () => {
+//   travelPlan.travelTo = `Stockholm {${Math.floor(Math.random() * 100)}}`;
+//   travelPlan.travelFrom = "Gothenburg";
+//   travelPlan.travelDate = "2022-12-24";
+//   travelPlan.travelTransport = "Train";
+//   travelPlan.bucketList = ["Gamla Stan", "Vasa Museum", "Skansen"];
 
-  travelPlan.id = globalID;
-  globalID++;
-  travelPlans.push(travelPlan);
-  console.log(travelPlans);
-  travelPlan = {
-    travelTo: "",
-    travelFrom: "",
-    travelDate: "",
-    travelTransport: "",
-    bucketList: [],
-  };
-};
+//   travelPlan.id = globalID;
+//   globalID++;
+//   travelPlans.push(travelPlan);
+//   console.log(travelPlans);
+//   travelPlan = {
+//     travelTo: "",
+//     travelFrom: "",
+//     travelDate: "",
+//     travelTransport: "",
+//     bucketList: [],
+//   };
+// };

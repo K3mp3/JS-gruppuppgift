@@ -1,13 +1,14 @@
-export const submitTravelForm = (event) => {
+export const submitTravelFrom = (event) => {
   event.preventDefault();
   const userInput = document.getElementById("user-input").value;
 
   if (userInput === "") {
-    alert("Please enter a valid location");
+    alert("Du måste skriva in en plats");
     return;
   }
 
   travelFrom = userInput;
-  document.querySelectorAll(".landing-page")[1].classList.add("hidden");
-  document.querySelectorAll(".landing-page")[2].classList.remove("hidden");
+  // document.querySelectorAll(".landing-page")[1].classList.add("hidden");
+  // document.querySelectorAll(".landing-page")[2].classList.remove("hidden");
+  goToNextSection();
 };

@@ -34,20 +34,21 @@ export function submitTravelDate(event) {
   const month = dateObj.getMonth(); // Get the month index (0-11)
   const day = dateObj.getDate(); // Get the day of the month
 
-  // Store the full date as [year, month, day]
+  // Store the full date as a string
   travelDate = `${day} ${monthNames[month]} ${year}`;
 
   console.log("Resedatum (år, månad, dag):", travelDate); // Verify the stored value
 
-  // Hide the current section
-  const currentSection = document.querySelector(".landing-page:nth-child(3)");
-  currentSection.classList.add("hidden");
+  goToNextSection(); // Call the goToNextSection function
+  // // Hide the current section
+  // const currentSection = document.querySelector(".landing-page:nth-child(3)");
+  // currentSection.classList.add("hidden");
 
-  // Show the next section
-  const nextSection = document.querySelector(".landing-page:nth-child(4)");
-  if (nextSection) {
-    nextSection.classList.remove("hidden");
-  }
+  // // Show the next section
+  // const nextSection = document.querySelector(".landing-page:nth-child(4)");
+  // if (nextSection) {
+  //   nextSection.classList.remove("hidden");
+  // }
 
   // // Update text or content in the next section if needed
   // const dateDisplay = document.getElementById('date-display');

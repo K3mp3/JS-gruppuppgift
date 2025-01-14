@@ -70,17 +70,19 @@
   gap: 1rem !important;
   width: 100%;
   align-items: center;
+
+  .travel-card-todo-input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 }
-.travel-card-todo-input {
-  width: 100%;
-  padding: 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-weight: 300;
-  outline: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
 .travel-card-todo-button {
   padding: 1rem 2rem;
   border: none;
@@ -91,6 +93,10 @@
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+.travel-card-todo-button:hover {
+  transform: scale(1.025);
 }
 .travel-card-todo-list {
   display: flex;
@@ -165,7 +171,8 @@
   color: #fff;
   background-color: #f39c12;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
+
+  align-items: center;
   display: flex;
   gap: 1rem;
 }

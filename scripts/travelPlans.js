@@ -1,3 +1,4 @@
+//  Function used for adding a new travel plan to the list of travel plans used as debug data
 function addTravelPlan() {
   //   const newPlan = {
   //     travelTo: travelTo,
@@ -59,6 +60,9 @@ function displayTravelPlans() {
   if (!travelList) return;
 
   travelList.innerHTML = "";
+  travelList.innerHTML += `          <button class="button" onclick="newTravelPlan()">
+            Skapa ny resa
+          </button>`;
 
   travelPlans.forEach((plan) => {
     const listItem = document.createElement("div");
@@ -67,20 +71,28 @@ function displayTravelPlans() {
     listItem.innerHTML = `
             <div class="travel-summary" onclick="toggleDetails(${plan.id})">
                 <span>${plan.travelFrom} ➜ ${plan.travelTo}</span>
-                <span>${getTransportIcon(plan.travelTransport)}</span>
-                <span>${plan.bucketList.length} activities planned</span>
+                
             </div>
             <div id="details-${
               plan.id
             }" class="travel-details" style="display: none">
-                <p>Date: ${plan.travelDate}</p>
-                <h4>Planned Activities:</h4>
+            <span>${getTransportIcon(plan.travelTransport)}</span>
+                <span>${plan.bucketList.length} Aktiviteter planerade</span>
+                <p>Datum: ${plan.travelDate}</p>
+                <h4>Planerade aktiviteter:</h4>
                 <ul>
                     ${plan.bucketList
-                      .map((item) => `<li>${item}</li>`)
+                      .map((item) => {
+                        if (item.checked) {
+                          return `<li class="checked">${item.todo}</li>`;
+                        }
+                        return `<li>${item.todo}</li>`;
+                      })
                       .join("")}
                 </ul>
-                <button onclick="deleteTravelPlan(${plan.id})">Delete</button>
+                <button class="button" onclick="deleteTravelPlan(${
+                  plan.id
+                })">Radera</button>
             </div>
         `;
 
@@ -98,6 +110,17 @@ function getTransportIcon(transport) {
   };
   return icons[transport.toLowerCase()] || "🚗";
 }
+
+let newTravelPlan = () => {
+  resetVariables();
+
+  document.querySelectorAll(".landing-page")[5].classList.add("hidden");
+  document.querySelectorAll(".landing-page")[0].classList.remove("hidden");
+
+  document.querySelectorAll("input").forEach((input) => {
+    input.value = "";
+  });
+};
 
 // document.addEventListener("DOMContentLoaded", () => {
 //   displayTravelPlans();

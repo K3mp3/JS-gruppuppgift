@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "sass": "^1.83.0"
+    "sass": "^1.83.0",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "happy-dom": "^16.5.3",
+    "yarn": "^1.22.22"
   }
 }
