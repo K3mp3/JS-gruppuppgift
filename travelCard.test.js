@@ -1,7 +1,15 @@
 import { it, expect, describe, toBe, beforeEach } from "vitest";
 
 const { checkTodo } = require("./scripts/travelCard.js");
-const { travelPlan } = require("./scripts/globalVariables.js");
+
+let travelPlan = {
+  travelTo: "",
+  travelFrom: "",
+  travelDate: "",
+  travelTransport: "",
+  bucketList: [],
+  id: 0,
+};
 
 describe("checkTodo Function", () => {
   // Toggle checked status of existing todo item from false to true
