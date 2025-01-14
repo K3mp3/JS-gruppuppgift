@@ -1,3 +1,16 @@
+body {
+  background: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+}
+
 .hidden {
   display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

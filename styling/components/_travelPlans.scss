@@ -29,7 +29,13 @@
   }
 
   border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.025);
+  }
 }
+
 .travel-details {
   display: flex;
   flex-direction: column;

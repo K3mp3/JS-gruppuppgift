@@ -3,12 +3,13 @@
 
 .landing-page {
   height: 100vh;
-  background: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 16px;
+  animation: fadeIn 500ms ease-in-out;
 
   h1 {
     font-family: map-get($font-title-black, font-family);
@@ -26,6 +27,27 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
+    }
+
+    input {
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1.75rem;
+      margin-top: 0.25rem;
+      font-size: 1.25rem;
+
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      outline: none;
+    }
+    select {
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1.75rem;
+      margin-top: 0.25rem;
+      font-size: 1.25rem;
+
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      outline: none;
     }
   }
 }
